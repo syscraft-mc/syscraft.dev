@@ -16,6 +16,17 @@ const sidebar = SIDEBAR[langCode];
 
 <nav aria-labelledby="grid-left">
 	<ul class="nav-groups">
+	    <li>
+	        <div class="nav-group">
+	            <ul>
+	                <li class="nav-link">
+	                    <a href="/" aria-current={currentPage === '/' ? 'page' : false}>
+	                        Home
+                        </a>
+                    </li>
+	            </ul>
+	        </div>
+	    </li>
 		{
 			Object.entries(sidebar).map(([header, children]) => (
 				<li>

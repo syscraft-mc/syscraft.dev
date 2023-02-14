@@ -1,6 +1,6 @@
 export const SITE = {
-	title: 'Documentation',
-	description: 'Your website description.',
+	title: 'Syscraft',
+	description: 'A community for Minecraft server admins, developers and hosts.',
 	defaultLanguage: 'en-us',
 } as const;
 
@@ -19,9 +19,9 @@ export const KNOWN_LANGUAGES = {
 } as const;
 export const KNOWN_LANGUAGE_CODES = Object.values(KNOWN_LANGUAGES);
 
-export const GITHUB_EDIT_URL = `https://github.com/withastro/astro/tree/main/examples/docs`;
+export const GITHUB_EDIT_URL = `https://github.com/syscraft-mc/syscraft.dev`;
 
-export const COMMUNITY_INVITE_URL = `https://astro.build/chat`;
+export const COMMUNITY_INVITE_URL = `https://discord.gg/Dx6SSkx`;
 
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
@@ -36,11 +36,12 @@ export type Sidebar = Record<
 >;
 export const SIDEBAR: Sidebar = {
 	en: {
-		'Section Header': [
+		'Admin': [
 			{ text: 'Introduction', link: 'en/introduction' },
 			{ text: 'Page 2', link: 'en/page-2' },
 			{ text: 'Page 3', link: 'en/page-3' },
 		],
-		'Another Section': [{ text: 'Page 4', link: 'en/page-4' }],
+		'Develop': [{ text: 'Page 4', link: 'en/page-4' }],
+		'Host': [{ text: 'Page 4', link: 'en/page-4' }],
 	},
 };

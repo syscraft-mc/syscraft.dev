@@ -35,6 +35,10 @@ nav ul {
 	padding: 0;
 }
 
+nav .nav-groups h2 {
+	font-size: 1.5rem;
+}
+
 .content > section > * + * {
 	margin-top: 1.25rem;
 }
