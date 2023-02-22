@@ -17,35 +17,35 @@ PlaceholderAPI is a plugin/library that allows servers to use placeholders from 
 ## [LuckPerms](https://luckperms.net) (permissions)
 LuckPerms is a feature-rich, yet still incredibly easy to use permissions manager. A permissions plugin allows you to grant specific players & groups permission to either do, or specifically not do something, where something is an action or command defined in another plugin. Because most plugins use permissions in some form, a permissions plugin is almost always a requirement. LuckPerms also supports complex permission setups, works with proxy software, and has great debugging tools.
 
-## CoreProtect or Prism (grief protection)
+## [CoreProtect](https://www.spigotmc.org/resources/coreprotect.8631/) or [Prism](https://www.spigotmc.org/resources/prism.75166/) (grief protection)
 CoreProtect is an administration and anti-griefing tool that makes it super easy for moderators/administrators to quickly identify who broke a specific block, took an item from a chest, placed a block, lit the TNT, etc. It supports storing the log into a database, and rolling back based on configurable filters such as “rollback everything done by Notch in the last 5 minutes in this 20 block radius”. It’ll quickly become your go-to anti-grief tool.
 
 
 Prism is a great similar alternative. It carries all of the same features as CoreProtect but is also an open-source alternative.
 
-## EssentialsX (general features/management)
+## [EssentialsX](https://essentialsx.net/) (general features/management)
 Essentials is a catch-all plugin for common server mechanics without having to install several individual plugins. It includes features such as shorthand/alias commands, kits, basic chat formatting, command signs, digital economy, and many more utilities. You will very likely not use everything, so sometimes heavy configuration is required.
 
-## LiteBans (punishment management)
+## [LiteBans](https://www.spigotmc.org/resources/litebans.3715/) (punishment management)
 LiteBans is a versatile and lightweight punishment plugin supporting UUIDs that allows temporary and permanent bans, kicks, mutes, warnings, and more. It also has an easy-to-install web interface.
 
-## AdvanceBans (punishment management)
+## [AdvanceBans](https://www.spigotmc.org/resources/advancedban.8695/) (punishment management)
 AdvanceBans is similar to Litebans but is open source and free to anyone to use or modify. It is lightweight and supports UUIDs to ban, kick, mute, and warn. However, it does not have its own web interface you can hook up.
 
-## WorldEdit (in-game world editor)
+## [WorldEdit](https://dev.bukkit.org/projects/worldedit) (in-game world editor)
 WorldEdit is the go-to for modifying your world or helping build large structures in Minecraft. It allows you to set, replace, and make shapes out of blocks and is to go to for helping modify large portions of your world!
 
-## WorldGuard (world protection)
+## [WorldGuard](https://dev.bukkit.org/projects/worldguard/) (world protection)
 WorldGuard integrates with WorldEdit allowing you to create regions around the world and to flag them with certain characteristics (such as to deny building, mob-spawning, and more!).
 
-## NuVotifier (vote listener)
+## [NuVotifier](https://www.spigotmc.org/resources/nuvotifier.13449/) (vote listener)
 Most server listing sites rely on voting to maintain rankings on their server list. To do this, most servers offer rewards. But in order to offer rewards, you need a plugin that listens to these server lists. That is where NuVotifier comes in. It lists on a specific port and whenever a vote is sent, it receives it and can send it to other plugins.
 
-## VotingPlugin (vote rewards)
+## [VotingPlugin](https://www.spigotmc.org/resources/votingplugin.15358/) (vote rewards)
 VotingPlugin allows you to give rewards to those that vote once the vote is received by NuVotifier.
 
-## Chunky (world generation)
+## [Chunky](https://www.spigotmc.org/resources/chunky.81534/) (world generation)
 Chunky is a world pre-generator, generating new chunks quickly, efficiently, and safely. It is a much faster alternative to WorldBorder's fill function and similar features in other plugins.
 
-## Spark (profiling tool, lag debugging)
+## [Spark](https://www.spigotmc.org/resources/spark.57242/) (profiling tool, lag debugging)
 Spark is a performance profiling plugin based on sk89q’s WarmRoast profiler. It can be used to diagnose performance issues such as lag or low tick rates.
