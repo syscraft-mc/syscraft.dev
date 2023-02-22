@@ -1,6 +1,6 @@
 ---
 title: "What plugins are recommended when starting?"
-description: "-"
+description: "A list of recommended plugins to consider using on your server"
 ---
 
 The answer to this question highly depends on what type of server you are running. A semi-vanilla server will have fewer plugins than a heavily modded Towny server. Have a search on [Spigot](https://www.spigotmc.org/resources/) to see which plugins would fit your server the best.

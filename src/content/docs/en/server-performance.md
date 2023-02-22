@@ -1,6 +1,6 @@
 ---
 title: "Improving Server Performance"
-description: "Docs intro"
+description: "How can I improve my server's performance/TPS?"
 ---
 
 There are many reasons your server could be lagging. From hardware to having your server unoptimized, a variety of factors must be considered when determining the cause of your lag. For your players, there are three types of lag: client-side lag, network lag, and server-side lag.

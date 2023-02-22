@@ -1,6 +1,6 @@
 ---
 title: "How can I get more players to join my server?"
-description: "Lorem ipsum dolor sit amet"
+description: "How do I get players to stay?"
 ---
 
 The most important thing to understand when starting a new server is that the Minecraft multiplayer market is dense with competition. To be successful, you will need to find a way to make your server stand apart from the thousands of competitors. There are many, many aspects that need to be considered, balanced and refined. This is not a complete guide, but it will help you on your way to understanding what players are looking for when they join a server, and subsequently how to encourage them to stay.
