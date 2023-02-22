@@ -1,6 +1,4 @@
 ---
-import relativeDate from 'tiny-relative-date';
-
 // fetch all commits for just this page's path
 
 const { path, editHref } = Astro.props;
@@ -68,7 +66,6 @@ const recentContributors = unique.slice(0, 3); // only show avatars for the 3 mo
 const additionalContributors = unique.length - recentContributors.length; // list the rest of them as # of extra contributors
 const [lastCommit] = data;
 const date = lastCommit?.commit ? lastCommit.commit.author.date : null;
-const relativeDateText = relativeDate(date);
 ---
 <!-- Thanks to @5t3ph for https://smolcss.dev/#smol-avatar-list! -->
 <h2 class="heading">Contributors</h2>
@@ -108,7 +105,7 @@ const relativeDateText = relativeDate(date);
 
 	</a>
 	<br>
-	<span title={date}>{relativeDateText}</span>
+	<span id="article-date" title={date} data-date={date}></span>
 </div>}
 {editHref &&
 <ul style="margin-top:1rem;">
@@ -136,6 +133,16 @@ const relativeDateText = relativeDate(date);
 	</li>
 </ul>
 }
+
+<script>
+import relativeDate from 'tiny-relative-date';
+
+const articleDate = document.querySelector('#article-date');
+
+const date = articleDate.dataset.date;
+
+articleDate.innerText = relativeDate(date);
+</script>
 
 <style>
 	.edit-on-github {
