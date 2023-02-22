@@ -1,12 +1,13 @@
 ---
+import relativeDate from 'tiny-relative-date';
+
 // fetch all commits for just this page's path
-type Props = {
-	path: string;
-};
-const { path } = Astro.props;
-const resolvedPath = `examples/docs/${path}`;
-const url = `https://api.github.com/repos/withastro/astro/commits?path=${resolvedPath}`;
-const commitsURL = `https://github.com/withastro/astro/commits/main/${resolvedPath}`;
+
+const { path, editHref } = Astro.props;
+
+const baseUrl = 'https://api.github.com/repos/syscraft-mc/syscraft.dev/commits';
+const url = baseUrl + '?path=' + path;
+const commitsURL = baseUrl + '/main/' + path;
 
 type Commit = {
 	author: {
@@ -43,7 +44,7 @@ async function getCommits(url: string) {
 
 		return data as Commit[];
 	} catch (e) {
-		console.warn(`[error]  /src/components/AvatarList.astro 
+		console.warn(`[error]  /src/components/RightSidebar/Contributors.astro
     ${(e as any)?.message ?? e}`);
 		return [] as Commit[];
 	}
@@ -65,9 +66,12 @@ const data = await getCommits(url);
 const unique = removeDups(data);
 const recentContributors = unique.slice(0, 3); // only show avatars for the 3 most recent contributors
 const additionalContributors = unique.length - recentContributors.length; // list the rest of them as # of extra contributors
+const [lastCommit] = data;
+const date = lastCommit?.commit ? lastCommit.commit.author.date : null;
+const relativeDateText = relativeDate(date);
 ---
-
 <!-- Thanks to @5t3ph for https://smolcss.dev/#smol-avatar-list! -->
+<h2 class="heading">Contributors</h2>
 <div class="contributors">
 	<ul class="avatar-list" style={`--avatar-count: ${recentContributors.length}`}>
 		{
@@ -76,7 +80,7 @@ const additionalContributors = unique.length - recentContributors.length; // lis
 					<a href={`https://github.com/${item.login}`}>
 						<img
 							alt={`Contributor ${item.login}`}
-							title={`Contributor ${item.login}`}
+							title={`${item.login}`}
 							width="64"
 							height="64"
 							src={`https://avatars.githubusercontent.com/u/${item.id}`}
@@ -97,8 +101,50 @@ const additionalContributors = unique.length - recentContributors.length; // lis
 	}
 	{unique.length === 0 && <a href={commitsURL}>Contributors</a>}
 </div>
+{date && <div class="last-commit">
+	Last edited by
+	<a href={lastCommit.author.html_url}>
+		{lastCommit.author.login}
+
+	</a>
+	<br>
+	<span title={date}>{relativeDateText}</span>
+</div>}
+{editHref &&
+<ul style="margin-top:1rem;">
+	<li class={`header-link depth-2`}>
+		<a class="edit-on-github" href={editHref} target="_blank" title="Edit this page on Github">
+			<svg
+				aria-hidden="true"
+				focusable="false"
+				data-prefix="fas"
+				data-icon="pen"
+				class="svg-inline--fa fa-pen fa-w-16"
+				role="img"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 512 512"
+				height="1em"
+				width="1em"
+			>
+				<path
+					fill="currentColor"
+					d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"
+				/>
+			</svg>
+			<span>Edit this page</span>
+		</a>
+	</li>
+</ul>
+}
 
 <style>
+	.edit-on-github {
+		text-decoration: none;
+		font: inherit;
+		color: inherit;
+		font-size: 1rem;
+	}
+
 	.avatar-list {
 		--avatar-size: 2.5rem;
 		--avatar-count: 3;
@@ -118,7 +164,7 @@ const additionalContributors = unique.length - recentContributors.length; // lis
 
 	@media (any-hover: hover) and (any-pointer: fine) {
 		.avatar-list {
-			/* We create 1 extra cell to enable the computed 
+			/* We create 1 extra cell to enable the computed
     width to match the final visual width */
 			grid-template-columns: repeat(calc(var(--avatar-count) + 1), calc(var(--avatar-size) / 1.75));
 		}

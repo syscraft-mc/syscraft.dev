@@ -66,7 +66,7 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
 		setCurrentID(e.target.getAttribute('href').replace('#', ''));
 	};
 
-	return (
+	return (!!headings.length &&
 		<>
 			<h2 id={onThisPageID} className="heading">
 				On this page

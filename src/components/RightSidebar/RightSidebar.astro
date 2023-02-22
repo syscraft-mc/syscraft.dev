@@ -2,26 +2,27 @@
 import type { MarkdownHeading } from 'astro';
 import TableOfContents from './TableOfContents';
 import MoreMenu from './MoreMenu.astro';
+import Contributors from './Contributors.astro';
 
 type Props = {
 	headings: MarkdownHeading[];
 	githubEditUrl: string;
 };
 
-const { currentPage } = Astro.props;
+const { currentPage, currentFile, headings, githubEditUrl } = Astro.props;
+
 currentPage.endsWith('/')
 	? currentPage.slice(1, -1)
 	: currentPage.slice(1);
 
 const homePage = currentPage === '/';
-
-const { headings, githubEditUrl } = Astro.props;
 ---
 
 <nav class="sidebar-nav" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner">
 		{!homePage && <TableOfContents client:media="(min-width: 50em)" headings={headings} />}
-		<MoreMenu currentPage={currentPage} editHref={homePage ? null : githubEditUrl} />
+		{!homePage && <Contributors path={currentFile} editHref={homePage ? null : githubEditUrl} />}
+		<MoreMenu currentPage={currentPage} path={currentFile} />
 	</div>
 </nav>
 
