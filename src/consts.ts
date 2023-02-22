@@ -39,6 +39,7 @@ export const SIDEBAR: Sidebar = {
 			{ text: 'Getting Players', link: 'en/getting-players' },
 			{ text: 'Choosing Server Software', link: 'en/server-software' },
 			{ text: 'Recommended Plugins', link: 'en/recommended-plugins' },
+			{ text: 'Server Security Tips', link: 'en/server-security' },
 		],
 		// 'Develop': [
 		//
