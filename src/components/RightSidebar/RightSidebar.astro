@@ -8,13 +8,20 @@ type Props = {
 	githubEditUrl: string;
 };
 
+const { currentPage } = Astro.props;
+currentPage.endsWith('/')
+	? currentPage.slice(1, -1)
+	: currentPage.slice(1);
+
+const homePage = currentPage === '/';
+
 const { headings, githubEditUrl } = Astro.props;
 ---
 
 <nav class="sidebar-nav" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner">
-		<TableOfContents client:media="(min-width: 50em)" headings={headings} />
-		<MoreMenu editHref={githubEditUrl} />
+		{!homePage && <TableOfContents client:media="(min-width: 50em)" headings={headings} />}
+		<MoreMenu currentPage={currentPage} editHref={homePage ? null : githubEditUrl} />
 	</div>
 </nav>
 

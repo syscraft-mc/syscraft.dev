@@ -26,7 +26,7 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 		<HeadCommon />
 		<HeadSEO {...data} canonicalUrl={canonicalURL} />
 		<title>
-			{`${data.title} 🚀 ${SITE.title}`}
+			{`${data.title ? `${data.title} • ` : ''}${SITE.title}`}
 		</title>
 		<style>
 			body {
@@ -130,8 +130,8 @@ const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
 					<slot />
 				</PageContent>
 			</div>
-			<aside id="grid-right" class="grid-sidebar" title="Table of Contents">
-				<RightSidebar headings={headings} githubEditUrl={githubEditUrl} />
+			<aside id="grid-right" class="grid-sidebar">
+				<RightSidebar currentPage={currentPage} headings={headings} githubEditUrl={githubEditUrl} />
 			</aside>
 		</main>
 		<Footer path={currentFile} />
