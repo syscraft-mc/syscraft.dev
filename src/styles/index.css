@@ -54,8 +54,10 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: var(--font-mono);
+	text-transform: uppercase;
 	margin-bottom: 1rem;
-	font-weight: bold;
+	font-weight: 800;
 	line-height: 1;
 }
 

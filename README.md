@@ -1,15 +1,4 @@
-# Astro Starter Kit: Docs Site
-
-```bash
-npm create astro@latest -- --template docs
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/docs)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/docs)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![docs](https://user-images.githubusercontent.com/4677417/186189283-0831b9ab-d6b9-485d-8955-3057e532ab31.png)
+# syscraft.dev website
 
 ## Features
 
@@ -27,7 +16,7 @@ npm create astro@latest -- --template docs
 All commands are run from the root of the project, from a terminal:
 
 | Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
+|:-----------------------| :----------------------------------------------- |
 | `npm install`          | Installs dependencies                            |
 | `npm run dev`          | Starts local dev server at `localhost:3000`      |
 | `npm run build`        | Build your production site to `./dist/`          |

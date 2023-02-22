@@ -1,0 +1,28 @@
+---
+title: "Improving Server Performance"
+description: "Docs intro"
+---
+
+There are many reasons your server could be lagging. From hardware to having your server unoptimized, a variety of factors must be considered when determining the cause of your lag. For your players, there are three types of lag: client-side lag, network lag, and server-side lag.
+
+## Client-Side Lag
+Client-side lag is when the player’s game (the client) is the origin of the lag. This lag is very noticeable to the player and often appears as low fps or fps drops, slow response to the keyboard or mouse movements, or chunks not loading quickly. Often these issues are entirely up to the player to fix and have nothing to do with the server. For example, an old computer may not be able to run Minecraft too well and a player might experience slowness in general, or a player may have a newer computer, but are lagging because they have a high resolution resource pack and shaders running. That is not to say that all client-side lag is due to poor hardware on the players’ side though. If a single chunk in your server has, say, 200 zombies in it, most people’s computers will struggle, and the player may notice significant lag. In general, you should avoid packing areas with living entities, and be mindful of areas with huge amounts of tile entities as both can cause client-side lag to players in the area.
+
+## Network Lag
+Network lag is the type of lag you can probably influence the least once your server is up and running. This type of lag is caused by packets taking too long to send from your server to the player and back or even getting lost on the way. This is the classic “lag” you know from other multiplayer games: enemies suddenly teleporting, shots not registering, your actions registering with a delay, rubber-banding, etc. This is majorly influenced by the distance from your players to your server, but also the routing. This is often referred to as ‘latency’ or a player’s ‘ping’ The most important action you can take here is to make sure your server is located in a good data center and close to the majority of your players. A major measure of network lag is ping. As a rule of thumb, you can play Minecraft decently enough up to 150 ms of latency if it’s not PvP focussed, so playing from the EU on a US server is usually possible, if a little laggy from time to time.
+
+## Server-Side Lag
+Server-side lag is the third type of lag, the type that most of this guide will deal with. Server-side lag means that the server can’t process the game fast enough. With server-side lag, FPS will be smooth, but actions are unreliable. Classical examples are player’s blocks not breaking, fluids not flowing, projectiles behaving weirdly, monsters not moving or moving slowly, etc.
+
+Minecraft calculates updates to the gameworld 20 times per second. Each update is called a tick. Accordingly, the main measure for server lag is TPS - Ticks Per Second. If your server cannot calculate everything that is happening fast enough, it will start to fall behind, and the TPS will drop. This will be very noticeable once your TPS drops below 19 or so. If you are using Spigot (or any derivative forks), you can use the command ‘/tps’ to display a basic representation of your server’s TPS over the last 15 minutes.
+
+## How can I improve Server-Side Lag?
+It is recommended to use Paper to help with performance as the vanilla .jar file is highly unoptimized. If you want more experimental performance gains at the risk of server stability, then Tuinity is a fork of Paper that helps on high player counts. It is also recommended to have at least 2-3GB dedicated to the Minecraft server minimum, 6GB is recommended for acceptable performance (this can increase depending on player count). In order to further increase performance, it is recommended to follow the Server optimization guide by Celebrimbor. This guide will walk you through how to edit your config.yml files for better performance. Alternatively, you can follow Barty’s optimization guide if Celebrimbor’s guide is not enough.
+
+After acquiring your server software, it is recommended to change the startup flags for your server. For flags, it is recommended to use Aikar’s Flags. This will improve garbage collection and allow you to get the most out of your ram.
+
+If you are using Paper (or a fork of it) you can access Timings V2, which is a massively improved monitoring system of your server that allows you to see where your resources are going. It is highly recommended to get a base understanding of how timings work as they can help determine lag sources. You can learn about what it does and how to use it here and learn about it’s uses and limitations here!
+
+If you are still experiencing consistently low TPS, it might be time to change your hardware. Minecraft runs mostly on 1 thread and therefore, single-core performance is key to a server (although, paper can help offload some things from the main thread and onto a second thread!). Hardware recommendations change regularly, so if you need help come check out the community Discord or you can read Disconsented’s Hardware is Hard guide to get a better understanding of which hardware you should be running on.
+
+Lag spikes are also different and occur when a small number of ticks (or sometimes just one tick) takes a long time to execute. Finding the cause of lag spikes just from looking at normal timings profiling data can be tricky because the data is averaged. All of the other samples will "cancel out" the spikes, masking their impact. A great tool for identifying the source of these spikes is Spark. It can be overwhelming at first, so we recommend this guide to get started.

@@ -10,5 +10,5 @@ export default defineConfig({
 		// Enable React for the Algolia search component.
 		react(),
 	],
-	site: `https://astro.build`,
+	site: `https://syscraft.dev`,
 });

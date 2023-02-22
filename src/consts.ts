@@ -6,12 +6,11 @@ export const SITE = {
 
 export const OPEN_GRAPH = {
 	image: {
-		src: 'https://github.com/withastro/astro/blob/main/assets/social/banner-minimal.png?raw=true',
+		src: '/default-og-image.jpg',
 		alt:
-			'astro logo on a starry expanse of space,' +
-			' with a purple saturn-like planet floating in the right foreground',
+			'syscraft logo with a dark blue background,' +
+			' with text saying "A community for Minecraft server admins, developers and hosts"',
 	},
-	twitter: 'astrodotbuild',
 };
 
 export const KNOWN_LANGUAGES = {
@@ -37,11 +36,16 @@ export type Sidebar = Record<
 export const SIDEBAR: Sidebar = {
 	en: {
 		'Admin': [
-			{ text: 'Introduction', link: 'en/introduction' },
-			{ text: 'Page 2', link: 'en/page-2' },
-			{ text: 'Page 3', link: 'en/page-3' },
+			{ text: 'Getting Players', link: 'en/getting-players' },
+			{ text: 'Choosing Server Software', link: 'en/server-software' },
+			{ text: 'Recommended Plugins', link: 'en/recommended-plugins' },
 		],
-		'Develop': [{ text: 'Page 4', link: 'en/page-4' }],
-		'Host': [{ text: 'Page 4', link: 'en/page-4' }],
+		// 'Develop': [
+		//
+		// ],
+		'Host': [
+			{ text: 'Choosing A Server Host', link: 'en/server-hosting' },
+			{ text: 'Improving Server Performance', link: 'en/server-performance' },
+		],
 	},
 };
