@@ -18,7 +18,7 @@ All commands are run from the root of the project, from a terminal:
 ## Adding pages
 
 - create a file under `/src/content/docs/en/` - e.g. `test-page.md`
-- add the following to the top - replacing `<TITLE>` and `<DESCRIPTION>`
+- add the following to the top - replacing `<TITLE>` and `<DESCRIPTION>` (see more about [page metadata](#page-metadata))
 ```yaml
 ---
 title: <TITLE>
@@ -26,7 +26,7 @@ description: <DESCRIPTION>
 ---
 ```
 - use the rest of the file as you would normally write a markdown (.md) file
-- add the page to [`src/consts.ts`](https://github.com/syscraft-mc/syscraft.dev/blob/main/src/consts.ts#L36)
+- add the page to [`src/consts.ts`](https://github.com/syscraft-mc/syscraft.dev/blob/main/src/consts.ts#L36) (see more about [sidebar navigation](#sidebar-navigation))
 ```js
 // export const SIDEBAR: Sidebar = {
 //   en: {
