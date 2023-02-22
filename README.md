@@ -1,15 +1,6 @@
 # syscraft.dev website
 
-## Features
-
-- ✅ **Full Markdown support**
-- ✅ **Responsive mobile-friendly design**
-- ✅ **Sidebar navigation**
-- ✅ **Search (powered by Algolia)**
-- ✅ **Multi-language i18n**
-- ✅ **Automatic table of contents**
-- ✅ **Automatic list of contributors**
-- ✅ (and, best of all) **dark mode**
+## Powered by [Astro](https://astro.build/)
 
 ## 🧞 Commands
 
@@ -24,9 +15,30 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro --help` | Get help using the Astro CLI                     |
 
-To deploy your site to production, check out our [Deploy an Astro Website](https://docs.astro.build/guides/deploy) guide.
+## Adding pages
 
-## 👀 Want to learn more?
+- create a file under `/src/content/docs/en/` - e.g. `test-page.md`
+- add the following to the top - replacing `<TITLE>` and `<DESCRIPTION>`
+```yaml
+---
+title: <TITLE>
+description: <DESCRIPTION>
+---
+```
+- use the rest of the file as you would normally write a markdown (.md) file
+- add the page to [`src/consts.ts`](https://github.com/syscraft-mc/syscraft.dev/blob/main/src/consts.ts#L36)
+```js
+// export const SIDEBAR: Sidebar = {
+//   en: {
+//     'Admin': [
+          { text: '<TITLE>', link: 'en/test-page.md' },
+```
+
+---
+
+> Below is documentation provided by Astro, it is useful so keeping it in here for now
+
+# ASTRO
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
