@@ -24,10 +24,10 @@ Do note that you will need some Linux knowledge to set up a VPS, think about OS 
 Are you running a big network of servers and want to keep all of your servers on the same machine? Then a Dedicated Server is your go-to option. You can think of a Dedicated Server like your own computer, but in a big data center with lots of other similar machines that you can remotely access through an SSH client like Putty or Termius. On a Dedicated Server, you have full control over everything, which OS you want to install, how you allocate your resources and how you run your machine. Administrating a Dedicated Server is done in much the same way as with a VPS, with the main difference being performance. Next to this, you are in full control of scaling your servers as you have all the resources to yourself, which are not being shared with anyone else. If you are running a Bungee network with multiple servers then a Dedicated Server is a better option than just tying a bunch of Shared Hosting servers together.
 
 Good Dedicated Server providers you can use (sorted on average price from low to high):
-- Hetzner (EU)
-- OVH (EU/AU/SEA/NA)
-- ReliableSite (NA)
-- PhoenixNAP (EU/NA/SEA)
+- [Hetzner](https://www.hetzner.com/) (EU)
+- [OVH](https://www.ovh.com/world/) (EU/AU/SEA/NA)
+- [ReliableSite](https://www.reliablesite.net/) (NA)
+- [PhoenixNAP](https://phoenixnap.com/) (EU/NA/SEA)
 
 Do note that you will need some Linux knowledge to set up a Dedicated Server, think about OS installations, firewalling, etc. General best practices for security are changing your SSH port, using SSH keys, disabling root access, installing Fail2Ban, and potentially limiting SSH to a known IP/VPN/JumpServer.
 
