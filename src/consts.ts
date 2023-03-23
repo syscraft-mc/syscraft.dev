@@ -22,6 +22,10 @@ export const GITHUB_EDIT_URL = `https://github.com/syscraft-mc/syscraft.dev/blob
 
 export const COMMUNITY_INVITE_URL = `https://discord.gg/Dx6SSkx`;
 
+export const REDDIT_URL = `https://reddit.com/r/syscraft`;
+
+export const GITHUB_ORG_URL = `https://github.com/syscraft-mc`;
+
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
 	indexName: 'syscraft',
