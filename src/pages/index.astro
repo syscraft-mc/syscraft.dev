@@ -1,39 +1,125 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import {COMMUNITY_INVITE_URL, GITHUB_ORG_URL, REDDIT_URL} from '../consts';
 ---
 
 <MainLayout title="" }>
-	<div class="logo">
-		<img src="/syscraft-logo.gif" alt="Syscraft logo"/>
-		Syscraft
-	</div>
+    <div class="logo">
+        <img src="/syscraft-logo.gif" alt="Syscraft logo"/>
+        Syscraft
+    </div>
+
+    <h1>Welcome</h1>
+    <p>
+        Syscraft is a community for everyone involved in the Minecraft server
+        community to gather, ask for help, share stories, and make the
+        server world a better place to hang out!
+    </p>
+    <p>
+        You're welcome as an admin, moderator, developer,
+        owner, host, or even as a player interested in how it all works!
+    </p>
+    <hr/>
+
+    <h1>Navigating</h1>
+    <p>
+        On this site, you can find useful guides and resources on creating,
+        maintaining and growing Minecraft servers and their communities!
+    </p>
+    <p>
+        If you are new to server hosting, we'd recommend skimming through each guide on the sidebar.
+    </p>
+    <p>
+        If you are looking for a specific page, use the <code><kbd>CTRL</kbd>+<kbd>K</kbd></code>
+        hotkey or type in the searchbar above!
+    </p>
+    <img src="/search.png" alt="Search in the documentation">
+    <hr/>
+
+    <h1>Join The Community</h1>
+    <p>Need help or advise? Want to stay up-to-date or just hang out with cool people?</p>
+    <p>
+        Join our active community
+        <a href={COMMUNITY_INVITE_URL}
+           target="_blank"
+           title="Join our community Discord server">
+            Discord server
+        </a>, check out our
+        <a href={REDDIT_URL}
+           target="_blank"
+           title="Check out our subreddit">
+            subreddit
+        </a> or contribute to our community projects on
+        <a href={GITHUB_ORG_URL}
+           target="_blank"
+           title="Check out our subreddit">
+            GitHub
+        </a>!
+    </p>
+    <img src="/invite.png" alt="Search in the documentation">
+    <hr/>
+
+    <h1>Contributing</h1>
+    <p>
+        We value and appreciate every contribution to our active projects!
+        If you see any issues, potential improvements in any of the
+        projects, listed below, or would like to add new content, feel
+        free to create
+        <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">
+            pull requests
+        </a>!
+    </p>
+    <p>
+        If you'd like to help but unsure how, please check out the 'Issues'
+        tab in the GitHub repositories or ask
+        <a href={COMMUNITY_INVITE_URL}>on our Discord</a>.
+        We're always happy to help newcomers get started!
+    </p>
+
+    <h3>Active Projects</h3>
+    <ul>
+        <li>
+            <p>
+                Create new or update guides and documentations on this site using the
+                simple <a href="https://www.markdownguide.org/">Markdown</a> syntax!
+            </p>
+            <a href="https://github.com/syscraft-mc/syscraft.dev">https://github.com/syscraft-mc/syscraft.dev</a>
+        </li>
+        <li>
+            <p>Create new or update existing Discord bot commands for the <code>@Syscraft</code> bot!</p>
+            <a href="https://github.com/syscraft-mc/tags">https://github.com/syscraft-mc/tags</a>
+        </li>
+        <li>
+            <p>
+                Starter Server is a repository containing a basic Java Edition
+                Minecraft server to help people get started.
+                Help us improve it!
+            </p>
+            <a href="https://github.com/syscraft-mc/starter-server">https://github.com/syscraft-mc/starter-server</a>
+        </li>
+    </ul>
 </MainLayout>
 
-<script is:inline>
-	// Redirect your homepage to the first page of documentation.
-	// If you have a landing page, remove this script and add it here!
-	// window.location.pathname = `/en/introduction`;
-</script>
-
 <style>
-	.logo {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: clamp(2rem, 5vw, 4rem);
-		font-family: var(--font-mono);
-		text-transform: uppercase;
-		height: 10rem;
-	}
+    .logo {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(2rem, 10vw, 4rem);
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        height: 10rem;
+    }
 
-	@media only screen and (max-width: 500px) {
-		.logo {
-			flex-direction: column;
-		}
-	}
+    .logo img {
+        height: 100%;
+        margin-right: 1rem;
+    }
 
-	img {
-		height: 100%;
-		margin-right: 1rem;
-	}
+    @media only screen and (max-width: 500px) {
+        .logo {
+            flex-direction: column;
+        }
+    }
 </style>
