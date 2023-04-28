@@ -40,6 +40,7 @@ export type Sidebar = Record<
 export const SIDEBAR: Sidebar = {
 	en: {
 		'Admin': [
+			{ text: 'Starter Server', link: 'en/starter-server' },
 			{ text: 'Getting Players', link: 'en/getting-players' },
 			{ text: 'Choosing Server Software', link: 'en/server-software' },
 			{ text: 'Recommended Plugins', link: 'en/recommended-plugins' },
