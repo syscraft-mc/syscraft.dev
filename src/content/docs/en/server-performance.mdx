@@ -2,6 +2,7 @@
 title: "Improving Server Performance"
 description: "How can I improve my server's performance/TPS?"
 ---
+import {COMMUNITY_INVITE_URL} from '../../../consts';
 
 There are many reasons your server could be lagging. From hardware to having your server unoptimized, a variety of factors must be considered when determining the cause of your lag. For your players, there are three types of lag: client-side lag, network lag, and server-side lag.
 
@@ -25,4 +26,4 @@ If you are using [Paper](https://papermc.io/) (or a fork of it) you can access T
 
 Lag spikes are also different and occur when a small number of ticks (or sometimes just one tick) takes a long time to execute. Finding the cause of lag spikes just from looking at normal timings profiling data can be tricky because the data is averaged. All of the other samples will "cancel out" the spikes, masking their impact. A great tool for identifying the source of these spikes is [Spark](https://www.spigotmc.org/resources/spark.57242/). It can be overwhelming at first, so we recommend [this guide](https://github.com/lucko/spark/wiki/Finding-the-cause-of-lag-spikes) to get started.
 
-If you are still experiencing consistently low TPS, it might be time to change your hardware. Minecraft runs mostly on 1 thread and therefore, single-core performance is key to a server (although, paper can help offload some things from the main thread and onto a second thread!). Hardware recommendations change regularly, so if you need help come check out the [community Discord](https://discord.gg/Dx6SSkx) or you can read Disconsented’s [Hardware is Hard](https://disconsented.com/posts/hardware-is-hard/) guide to get a better understanding of which hardware you should be running on.
+If you are still experiencing consistently low TPS, it might be time to change your hardware. Minecraft runs mostly on 1 thread and therefore, single-core performance is key to a server (although, paper can help offload some things from the main thread and onto a second thread!). Hardware recommendations change regularly, so if you need help come check out the <a href={COMMUNITY_INVITE_URL}>community Discord</a> or you can read Disconsented’s [Hardware is Hard](https://disconsented.com/posts/hardware-is-hard/) guide to get a better understanding of which hardware you should be running on.
