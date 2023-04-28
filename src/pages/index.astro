@@ -20,10 +20,16 @@ import MainLayout from '../layouts/MainLayout.astro';
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 4rem;
+		font-size: clamp(2rem, 5vw, 4rem);
 		font-family: var(--font-mono);
 		text-transform: uppercase;
 		height: 10rem;
+	}
+
+	@media only screen and (max-width: 500px) {
+		.logo {
+			flex-direction: column;
+		}
 	}
 
 	img {
