@@ -72,7 +72,7 @@ const date = lastCommit?.commit ? lastCommit.commit.author.date : null;
 <div class="contributors">
 	<ul class="avatar-list" style={`--avatar-count: ${recentContributors.length}`}>
 		{
-			recentContributors.map((item) => (
+			recentContributors.reverse().map((item) => (
 				<li>
 					<a href={`https://github.com/${item.login}`}>
 						<img
