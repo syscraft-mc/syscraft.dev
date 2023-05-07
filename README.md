@@ -17,7 +17,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## Adding pages
 
-- create a file under `/src/content/docs/en/` - e.g. `test-page.md`
+- create a file under `/src/content/docs/en/` - e.g. `test-page.mdx`
 - add the following to the top - replacing `<TITLE>` and `<DESCRIPTION>` (see more about [page metadata](#page-metadata))
 ```yaml
 ---
@@ -25,13 +25,13 @@ title: <TITLE>
 description: <DESCRIPTION>
 ---
 ```
-- use the rest of the file as you would normally write a markdown (.md) file
+- use the rest of the file as you would normally write a markdown (.mdx) file
 - add the page to [`src/consts.ts`](https://github.com/syscraft-mc/syscraft.dev/blob/main/src/consts.ts#L36) (see more about [sidebar navigation](#sidebar-navigation))
 ```js
 // export const SIDEBAR: Sidebar = {
 //   en: {
 //     'Admin': [
-          { text: '<TITLE>', link: 'en/test-page.md' },
+          { text: '<TITLE>', link: 'en/test-page.mdx' },
 ```
 
 ---
@@ -109,12 +109,12 @@ To add a new language to your project, you'll want to extend the current `src/co
 ```diff
  📂 src/content/docs
  ┣ 📂 en
- ┃ ┣ 📜 page-1.md
- ┃ ┣ 📜 page-2.md
+ ┃ ┣ 📜 page-1.mdx
+ ┃ ┣ 📜 page-2.mdx
  ┃ ┣ 📜 page-3.astro
 + ┣ 📂 es
-+ ┃ ┣ 📜 page-1.md
-+ ┃ ┣ 📜 page-2.md
++ ┃ ┣ 📜 page-1.mdx
++ ┃ ┣ 📜 page-2.mdx
 + ┃ ┣ 📜 page-3.astro
 ```
 
