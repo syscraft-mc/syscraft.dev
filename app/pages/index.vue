@@ -48,7 +48,7 @@ useSyscraftSeo({
       '@type': 'WebSite',
       'name': 'Syscraft',
       'url': `${siteUrl}/`,
-      description
+      'description': description
     }
   ]
 })

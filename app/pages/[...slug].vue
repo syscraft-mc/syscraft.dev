@@ -25,27 +25,65 @@ const { data: surround } = await useAsyncData(`${routePath.value}-surround`, () 
 
 const title = page.value.seo?.title || page.value.title
 const description = page.value.seo?.description || page.value.description
-
+const siteUrl = useSiteUrl()
+const pageUrl = canonicalUrl(routePath.value)
 const headline = computed(() => findPageHeadline(navigation?.value, page.value?.path))
+const section = headline.value || page.value.section
 
 useSyscraftSeo({
   title,
   description,
   path: routePath.value,
-  eyebrow: headline.value || page.value.section || 'Guide',
+  eyebrow: section || 'Guide',
   ogType: 'article',
-  jsonLd: {
-    '@context': 'https://schema.org',
-    '@type': 'TechArticle',
-    'headline': title,
-    description,
-    'url': canonicalUrl(routePath.value),
-    'isPartOf': {
-      '@type': 'WebSite',
-      'name': 'Syscraft',
-      'url': useSiteUrl()
+  modifiedAt: page.value.updatedAt,
+  jsonLd: [
+    {
+      '@type': 'TechArticle',
+      'headline': title,
+      'description': description,
+      'url': pageUrl,
+      'mainEntityOfPage': pageUrl,
+      ...(page.value.updatedAt ? { dateModified: page.value.updatedAt } : {}),
+      'image': `${siteUrl}/syscraft-logo.png`,
+      'author': {
+        '@type': 'Organization',
+        'name': 'Syscraft',
+        'url': `${siteUrl}/`
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Syscraft',
+        'url': `${siteUrl}/`,
+        'logo': {
+          '@type': 'ImageObject',
+          'url': `${siteUrl}/syscraft-logo.png`
+        }
+      },
+      'isPartOf': {
+        '@type': 'WebSite',
+        'name': 'Syscraft',
+        'url': `${siteUrl}/`
+      }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': 'Syscraft',
+          'item': `${siteUrl}/`
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'name': title,
+          'item': pageUrl
+        }
+      ]
     }
-  }
+  ]
 })
 
 const hasToc = computed(() => Boolean(page.value?.body?.toc?.links?.length))

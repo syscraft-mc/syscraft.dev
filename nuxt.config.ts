@@ -66,11 +66,6 @@ export default defineNuxtConfig({
     }
   },
 
-  routeRules: {
-    '/en': { redirect: { to: '/', statusCode: 301 } },
-    '/en/**': { redirect: { to: '/**', statusCode: 301 } }
-  },
-
   experimental: {
     asyncContext: true
   },
@@ -81,7 +76,8 @@ export default defineNuxtConfig({
     preset: 'cloudflare-pages',
     prerender: {
       routes: [
-        '/'
+        '/',
+        '/sitemap.xml'
       ],
       crawlLinks: true
     },

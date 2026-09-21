@@ -26,6 +26,7 @@ export function useSyscraftSeo(opts: {
   titleTemplate?: string | null
   eyebrow?: string
   ogType?: 'website' | 'article'
+  modifiedAt?: string
   jsonLd?: Record<string, unknown> | Record<string, unknown>[]
   noIndex?: boolean
 }) {
@@ -52,6 +53,10 @@ export function useSyscraftSeo(opts: {
 
   if (opts.titleTemplate !== undefined) {
     meta.titleTemplate = opts.titleTemplate
+  }
+
+  if (opts.modifiedAt) {
+    meta.articleModifiedTime = opts.modifiedAt
   }
 
   if (opts.noIndex) {
@@ -84,7 +89,7 @@ export function useSyscraftSeo(opts: {
     description,
     eyebrow: opts.eyebrow ?? siteName
   }, {
-    alt: opts.title === siteName
+    alt: path === '/'
       ? 'Syscraft — Minecraft server community wiki'
       : `${opts.title} — Syscraft`,
     width: 1200,
