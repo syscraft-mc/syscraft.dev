@@ -31,6 +31,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/ui',
+    '@nuxtjs/sitemap',
     '@nuxt/content',
     'nuxt-og-image',
     'nuxt-llms'
@@ -43,7 +44,9 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   site: {
-    url: siteUrl
+    url: siteUrl,
+    name: 'Syscraft',
+    trailingSlash: true
   },
 
   content: {
@@ -95,6 +98,9 @@ export default defineNuxtConfig({
       const updatedAt = contentFileUpdatedAt(repoRoot, ctx.file.path) || contentFileMtime(repoRoot, ctx.file.path)
       if (updatedAt) {
         ctx.content.updatedAt = updatedAt
+        if (ctx.content.sitemap && typeof ctx.content.sitemap === 'object') {
+          ctx.content.sitemap.lastmod = ctx.content.sitemap.lastmod || updatedAt
+        }
       }
       if (relative) {
         ctx.content.editUrl = contentEditUrl(relative)
@@ -138,5 +144,14 @@ export default defineNuxtConfig({
       width: 1200,
       height: 630
     }
+  },
+
+  sitemap: {
+    zeroRuntime: true,
+    discoverImages: false,
+    exclude: [
+      '/raw/**',
+      '/__nuxt_content/**'
+    ]
   }
 })
