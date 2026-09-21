@@ -16,6 +16,8 @@ useHead({
   ],
   link: [
     { rel: 'icon', href: '/favicon.gif', type: 'image/gif' },
+    { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+    { rel: 'apple-touch-icon', href: '/syscraft-logo.png' },
     { rel: 'sitemap', href: '/sitemap.xml', type: 'application/xml' }
   ],
   htmlAttrs: {
