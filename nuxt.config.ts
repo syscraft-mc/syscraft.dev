@@ -98,8 +98,10 @@ export default defineNuxtConfig({
       const updatedAt = contentFileUpdatedAt(repoRoot, ctx.file.path) || contentFileMtime(repoRoot, ctx.file.path)
       if (updatedAt) {
         ctx.content.updatedAt = updatedAt
-        if (ctx.content.sitemap && typeof ctx.content.sitemap === 'object') {
-          ctx.content.sitemap.lastmod = ctx.content.sitemap.lastmod || updatedAt
+        const sitemap = ctx.content.sitemap
+        if (sitemap && typeof sitemap === 'object') {
+          const entry = sitemap as { lastmod?: string }
+          entry.lastmod ||= updatedAt
         }
       }
       if (relative) {
