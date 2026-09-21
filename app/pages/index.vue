@@ -35,10 +35,10 @@ useSyscraftSeo({
   jsonLd: [
     {
       '@type': 'Organization',
-      name: 'Syscraft',
-      url: `${siteUrl}/`,
-      logo: `${siteUrl}/syscraft-logo.png`,
-      sameAs: [
+      'name': 'Syscraft',
+      'url': `${siteUrl}/`,
+      'logo': `${siteUrl}/syscraft-logo.png`,
+      'sameAs': [
         'https://discord.gg/Dx6SSkx',
         'https://reddit.com/r/syscraft',
         'https://github.com/syscraft-mc'
@@ -46,8 +46,8 @@ useSyscraftSeo({
     },
     {
       '@type': 'WebSite',
-      name: 'Syscraft',
-      url: `${siteUrl}/`,
+      'name': 'Syscraft',
+      'url': `${siteUrl}/`,
       description
     }
   ]

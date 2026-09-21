@@ -46,12 +46,6 @@ export default defineNuxtConfig({
     url: siteUrl
   },
 
-  runtimeConfig: {
-    public: {
-      siteUrl
-    }
-  },
-
   content: {
     build: {
       markdown: {
@@ -66,6 +60,12 @@ export default defineNuxtConfig({
     }
   },
 
+  runtimeConfig: {
+    public: {
+      siteUrl
+    }
+  },
+
   routeRules: {
     '/en': { redirect: { to: '/', statusCode: 301 } },
     '/en/**': { redirect: { to: '/**', statusCode: 301 } }
@@ -73,6 +73,21 @@ export default defineNuxtConfig({
 
   experimental: {
     asyncContext: true
+  },
+
+  compatibilityDate: '2026-06-30',
+
+  nitro: {
+    preset: 'cloudflare-pages',
+    prerender: {
+      routes: [
+        '/'
+      ],
+      crawlLinks: true
+    },
+    cloudflare: {
+      nodeCompat: true
+    }
   },
 
   hooks: {
@@ -92,21 +107,6 @@ export default defineNuxtConfig({
           ? pageContributors
           : contentWorkingTreeAuthor(repoRoot)
       }
-    }
-  },
-
-  compatibilityDate: '2026-06-30',
-
-  nitro: {
-    preset: 'cloudflare-pages',
-    prerender: {
-      routes: [
-        '/'
-      ],
-      crawlLinks: true
-    },
-    cloudflare: {
-      nodeCompat: true
     }
   },
 

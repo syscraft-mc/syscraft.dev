@@ -43,16 +43,26 @@ function profileUrl(username?: string) {
     }"
   >
     <div class="flex w-full flex-col divide-y divide-default">
-      <section v-if="people.length" class="p-4">
+      <section
+        v-if="people.length"
+        class="p-4"
+      >
         <div class="mb-3 flex items-center justify-between gap-3">
           <p class="text-base font-semibold text-highlighted">
             Contributors
           </p>
-          <UBadge color="neutral" variant="outline" class="tabular-nums">
+          <UBadge
+            color="neutral"
+            variant="outline"
+            class="tabular-nums"
+          >
             {{ people.length }}
           </UBadge>
         </div>
-        <UAvatarGroup :max="MAX_VISIBLE" size="lg">
+        <UAvatarGroup
+          :max="MAX_VISIBLE"
+          size="lg"
+        >
           <UTooltip
             v-for="person in people"
             :key="person.username || person.name"
@@ -93,7 +103,10 @@ function profileUrl(username?: string) {
           <p class="font-semibold text-highlighted whitespace-nowrap">
             Last updated
           </p>
-          <time class="mt-0.5 block text-sm text-muted whitespace-nowrap" :datetime="updatedAt">
+          <time
+            class="mt-0.5 block text-sm text-muted whitespace-nowrap"
+            :datetime="updatedAt"
+          >
             {{ formatted }}
           </time>
         </div>

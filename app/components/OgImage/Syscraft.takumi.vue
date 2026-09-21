@@ -19,7 +19,10 @@ withDefaults(defineProps<{
       class="flex items-center justify-between"
       style="padding: 56px 64px 0;"
     >
-      <div class="flex items-center" style="gap: 20px;">
+      <div
+        class="flex items-center"
+        style="gap: 20px;"
+      >
         <img
           src="/syscraft-logo.png"
           alt=""

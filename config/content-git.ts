@@ -23,15 +23,15 @@ const KNOWN_EMAILS: Record<string, { username: string, name: string }> = {
 }
 
 const KNOWN_NAMES: Record<string, { username: string, name: string }> = {
-  larry: { username: 'Laarryy', name: 'Larry' },
+  'larry': { username: 'Laarryy', name: 'Larry' },
   'sam goodger': { username: 'Turbotailz', name: 'Sam Goodger' },
-  turbotailz: { username: 'Turbotailz', name: 'Sam Goodger' },
-  notgeri: { username: 'NotGeri', name: 'NotGeri' },
+  'turbotailz': { username: 'Turbotailz', name: 'Sam Goodger' },
+  'notgeri': { username: 'NotGeri', name: 'NotGeri' },
   'harry w': { username: 'hwalker928', name: 'Harry W' },
   'maddy miller': { username: 'me4502', name: 'Maddy Miller' },
-  tikkle: { username: 'Tikkle', name: 'Tikkle' },
-  powercas_gamer: { username: 'powercasgamer', name: 'powercas_gamer' },
-  powercasgamer: { username: 'powercasgamer', name: 'powercas_gamer' }
+  'tikkle': { username: 'Tikkle', name: 'Tikkle' },
+  'powercas_gamer': { username: 'powercasgamer', name: 'powercas_gamer' },
+  'powercasgamer': { username: 'powercasgamer', name: 'powercas_gamer' }
 }
 
 interface PersonCount {
@@ -187,7 +187,7 @@ function isBot(name: string, email: string, username?: string) {
     || name === 'web-flow'
 }
 
-function contributorIdentity(name: string, email: string) {
+function contributorIdentity(name: string, email: string): { key: string, name: string, username?: string } {
   const trimmedName = name.trim()
   const normalizedEmail = email.trim().toLowerCase()
   const knownEmail = KNOWN_EMAILS[normalizedEmail]
@@ -195,12 +195,12 @@ function contributorIdentity(name: string, email: string) {
     return { key: knownEmail.username.toLowerCase(), ...knownEmail }
   }
   const noreply = normalizedEmail.match(GITHUB_NOREPLY)
-  if (noreply) {
-    const username = noreply[1]
+  const noreplyUser = noreply?.[1]
+  if (noreplyUser) {
     return {
-      key: username.toLowerCase(),
-      username,
-      name: trimmedName || username
+      key: noreplyUser.toLowerCase(),
+      username: noreplyUser,
+      name: trimmedName || noreplyUser
     }
   }
   const knownName = KNOWN_NAMES[trimmedName.toLowerCase()]
@@ -209,8 +209,7 @@ function contributorIdentity(name: string, email: string) {
   }
   return {
     key: normalizedEmail || trimmedName.toLowerCase(),
-    name: trimmedName,
-    username: undefined as string | undefined
+    name: trimmedName
   }
 }
 
@@ -357,8 +356,8 @@ export function contentWorkingTreeAuthor(repoRoot: string): ContentContributor[]
   if (!repoRoot) {
     return []
   }
-  let name = ''
-  let email = ''
+  let name: string
+  let email: string
   try {
     name = execFileSync('git', ['config', 'user.name'], {
       cwd: repoRoot,

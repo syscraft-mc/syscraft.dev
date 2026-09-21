@@ -37,13 +37,13 @@ useSyscraftSeo({
   jsonLd: {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: title,
+    'headline': title,
     description,
-    url: canonicalUrl(routePath.value),
-    isPartOf: {
+    'url': canonicalUrl(routePath.value),
+    'isPartOf': {
       '@type': 'WebSite',
-      name: 'Syscraft',
-      url: useSiteUrl()
+      'name': 'Syscraft',
+      'url': useSiteUrl()
     }
   }
 })
