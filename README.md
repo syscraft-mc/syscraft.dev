@@ -19,7 +19,7 @@ pnpm dev
 
 ## Content
 
-Guides live in `content/` (`01.starter-server.md` → `/starter-server`, etc.). Homepage is `content/index.md`. Old `/en/...` URLs 301 to the same slug without `en`.
+Guides live in `content/` (`01.starter-server.md` → `/starter-server`, etc.). Homepage is `content/index.md`. Old `/en/...` URLs 301 to the same slug without `en`, via `public/_redirects`. The site is fully static on Cloudflare Pages (`cloudflare-pages-static`); there is no Worker.
 
 ## Site URL
 

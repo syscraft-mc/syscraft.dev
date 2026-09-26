@@ -1,0 +1,6 @@
+# Legacy /en/ guide URLs from the Astro site. Static Pages redirects, so they
+# do not invoke a Worker. Query strings are preserved by Pages.
+/en     /           301
+/en/    /           301
+/en/*/  /:splat/    301
+/en/*   /:splat/    301
