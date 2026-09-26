@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -92,6 +93,10 @@ export default defineNuxtConfig({
       async close() {
         // Pages serves 404.html on its own. Status 404 is not a valid _redirects code.
         const redirectsPath = resolve(repoRoot, 'dist/_redirects')
+        // nuxt prepare closes Nitro before a build has written this file.
+        if (!existsSync(redirectsPath)) {
+          return
+        }
         const text = await readFile(redirectsPath, 'utf8')
         const cleaned = text
           .split('\n')
