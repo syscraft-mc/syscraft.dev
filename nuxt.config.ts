@@ -1,3 +1,5 @@
+import { readFile, writeFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { contentEditUrl, contentFileContributors, contentFileMtime, contentFileUpdatedAt, contentRelative, contentWorkingTreeAuthor } from './config/content-git'
 
@@ -76,7 +78,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-06-30',
 
   nitro: {
-    preset: 'cloudflare-pages',
+    // Static Pages output: no Worker. Unknown URLs are a prerendered 404,
+    // and legacy /en URLs redirect from public/_redirects.
+    preset: 'cloudflare-pages-static',
     prerender: {
       routes: [
         '/',
@@ -84,8 +88,20 @@ export default defineNuxtConfig({
       ],
       crawlLinks: true
     },
-    cloudflare: {
-      nodeCompat: true
+    hooks: {
+      async close() {
+        // Pages serves 404.html on its own. Status 404 is not a valid _redirects code.
+        const redirectsPath = resolve(repoRoot, 'dist/_redirects')
+        const text = await readFile(redirectsPath, 'utf8')
+        const cleaned = text
+          .split('\n')
+          .filter(line => !/^\s*\/\*\s+\/404\.html\s+404\s*$/.test(line))
+          .join('\n')
+          .replace(/\n{3,}/g, '\n\n')
+        if (cleaned !== text) {
+          await writeFile(redirectsPath, cleaned.endsWith('\n') ? cleaned : `${cleaned}\n`)
+        }
+      }
     }
   },
 
